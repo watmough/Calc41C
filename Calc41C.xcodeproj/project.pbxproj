@@ -112,6 +112,9 @@
 		ABC35CB5143FEA21007855CF /* 126.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC35C62143FEA21007855CF /* 126.png */; };
 		ABC35CB6143FEA21007855CF /* 127.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC35C63143FEA21007855CF /* 127.png */; };
 		ABC35CC5143FEA96007855CF /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC35CC4143FEA96007855CF /* gradient.png */; };
+		ABC35D28143FF9B2007855CF /* click.aif in Resources */ = {isa = PBXBuildFile; fileRef = ABC35D25143FF9B2007855CF /* click.aif */; };
+		ABC35D29143FF9B2007855CF /* hp65_4_1.aiff in Resources */ = {isa = PBXBuildFile; fileRef = ABC35D26143FF9B2007855CF /* hp65_4_1.aiff */; };
+		ABC35D2A143FF9B2007855CF /* hp65_4_2.aiff in Resources */ = {isa = PBXBuildFile; fileRef = ABC35D27143FF9B2007855CF /* hp65_4_2.aiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -232,6 +235,9 @@
 		ABC35C62143FEA21007855CF /* 126.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 126.png; path = Glyphs/126.png; sourceTree = "<group>"; };
 		ABC35C63143FEA21007855CF /* 127.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 127.png; path = Glyphs/127.png; sourceTree = "<group>"; };
 		ABC35CC4143FEA96007855CF /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gradient.png; path = Graphics/gradient.png; sourceTree = "<group>"; };
+		ABC35D25143FF9B2007855CF /* click.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = click.aif; path = Sounds/click.aif; sourceTree = "<group>"; };
+		ABC35D26143FF9B2007855CF /* hp65_4_1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = hp65_4_1.aiff; path = Sounds/hp65_4_1.aiff; sourceTree = "<group>"; };
+		ABC35D27143FF9B2007855CF /* hp65_4_2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = hp65_4_2.aiff; path = Sounds/hp65_4_2.aiff; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +303,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ABC35D25143FF9B2007855CF /* click.aif */,
+				ABC35D26143FF9B2007855CF /* hp65_4_1.aiff */,
+				ABC35D27143FF9B2007855CF /* hp65_4_2.aiff */,
 				ABC35CC4143FEA96007855CF /* gradient.png */,
 				ABC35C0D143FEA02007855CF /* button60.png */,
 				ABC35C0E143FEA02007855CF /* button60orange.png */,
@@ -570,6 +579,9 @@
 				ABC35CB5143FEA21007855CF /* 126.png in Resources */,
 				ABC35CB6143FEA21007855CF /* 127.png in Resources */,
 				ABC35CC5143FEA96007855CF /* gradient.png in Resources */,
+				ABC35D28143FF9B2007855CF /* click.aif in Resources */,
+				ABC35D29143FF9B2007855CF /* hp65_4_1.aiff in Resources */,
+				ABC35D2A143FF9B2007855CF /* hp65_4_2.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
