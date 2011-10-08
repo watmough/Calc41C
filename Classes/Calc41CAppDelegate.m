@@ -61,8 +61,18 @@ extern int write_ram_file (char *ramfn);
 //--------------------------------------------------------------------------------
 // applicationWillTerminate:
 //--------------------------------------------------------------------------------
+extern int key_pressed;
+extern char display_enable;
 - (void)applicationWillTerminate:(UIApplication *)app
 {
+	// turn off hack for 1.2
+	// ### todo: check if on, call appropriate code
+	if (display_enable) {
+		key_pressed = 1;				// on/off
+		sleep(1);
+		key_pressed = -1;
+	}
+	
 	// save memory
 	if( ram_file_name) {
 		if (! write_ram_file (ram_file_name))

@@ -26,7 +26,7 @@
 #import "Display.h"
 #import "CalculatorButton.h"
 
-static int key_pressed = KC_NONE;
+int key_pressed = KC_NONE;
 BOOL key_click;
 char disp_buf1 [40];
 char disp_buf2 [40];
