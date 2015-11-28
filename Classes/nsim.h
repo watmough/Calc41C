@@ -48,7 +48,7 @@ extern int io_count;
 
 /* utility functions */
 
-//void fatal (int ret, char *format, ...);
+void fatal (int ret, char *format, ...);
 
 void reg_copy (reg dest, reg src);
 void reg_zero (reg dest);

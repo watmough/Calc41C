@@ -26,6 +26,10 @@
 #import "Display.h"
 #import "CalculatorButton.h"
 
+// .h file
+int init_nsim(int ram_size, char *rom_f, int trace);
+int run_nsim(char *ram_f);
+
 int key_pressed = KC_NONE;
 BOOL key_click;
 char disp_buf1 [40];
@@ -536,11 +540,25 @@ void LaunchThread()
     }
 }
 
+
+/*
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+*/
+
 //--------------------------------------------------------------------------------
 // viewDidLoad
 //--------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
+/*  if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        // iOS 7
+        [self prefersStatusBarHidden];
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    }
+*/    
 	// init access to mutex used for display data
 	pthread_mutex_init(&mutex, NULL);
 	
@@ -640,9 +658,13 @@ void LaunchThread()
 
 	// create display (renders custom glyphs)
 	Display * mainDisplay = [[Display alloc] initWithFrame:CGRectMake(20.0, 0.0, 280, 40.0)];
-	mainDisplay.center = CGPointMake(160, 30);
+	mainDisplay.center = CGPointMake(160, 40);
 	mainDisplay.backgroundColor = [UIColor clearColor];
 	mainDisplay.tag = -1;
+//    CGRect b = self.view.bounds;
+//    b.origin.y = 20;
+//    b.size.height = b.size.height - 20;
+//    self.view.bounds = b;
 	[[self view] addSubview:mainDisplay];
 	[[self view] setNeedsDisplay];
 	

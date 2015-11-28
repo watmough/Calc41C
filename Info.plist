@@ -10,8 +10,6 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>Icon.png</string>
-	<key>UIPrerenderedIcon</key>
-	<string>YES</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.jonathanwatmough.Calc41C</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -20,15 +18,29 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>UIApplicationExitsOnSuspend</key>
 	<true/>
+	<key>UILaunchImageFile~iphone</key>
+	<string>Launch</string>
+	<key>UIPrerenderedIcon</key>
+	<string>YES</string>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

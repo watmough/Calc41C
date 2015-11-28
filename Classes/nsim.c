@@ -1521,7 +1521,7 @@ static void init_cpu_registers (void)
 	arith_base = 16;
 }
 
-int init_nsim(int ram_size, char *rom_f, cbool trace) {
+int init_nsim(int ram_size, char *rom_f, int trace) {
 	
 	init_rom ();
 	if (! read_rom_file (rom_f, trace)) {
