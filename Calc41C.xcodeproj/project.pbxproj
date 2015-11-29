@@ -120,6 +120,9 @@
 		ABFF9D8B1C0AE760003D88A2 /* Launch-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9D831C0AE3BA003D88A2 /* Launch-667h@2x.png */; };
 		ABFF9D8D1C0AEE59003D88A2 /* gradient-1136.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9D8C1C0AEE59003D88A2 /* gradient-1136.png */; };
 		ABFF9D8F1C0B51F3003D88A2 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9D8E1C0B51F3003D88A2 /* display.png */; };
+		ABFF9D931C0B6D6D003D88A2 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9D901C0B6D6D003D88A2 /* Icon-60@2x.png */; };
+		ABFF9D941C0B6D6D003D88A2 /* Icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9D911C0B6D6D003D88A2 /* Icon512.png */; };
+		ABFF9D951C0B6D6D003D88A2 /* Icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9D921C0B6D6D003D88A2 /* Icon1024.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -249,6 +252,9 @@
 		ABFF9D841C0AE3BA003D88A2 /* Launch-1104@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch-1104@2x.png"; sourceTree = "<group>"; };
 		ABFF9D8C1C0AEE59003D88A2 /* gradient-1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient-1136.png"; sourceTree = "<group>"; };
 		ABFF9D8E1C0B51F3003D88A2 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
+		ABFF9D901C0B6D6D003D88A2 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		ABFF9D911C0B6D6D003D88A2 /* Icon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon512.png; sourceTree = "<group>"; };
+		ABFF9D921C0B6D6D003D88A2 /* Icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon1024.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +320,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AB3712F50F33768F00413F34 /* Icon.png */,
+				ABFF9D901C0B6D6D003D88A2 /* Icon-60@2x.png */,
+				ABFF9D911C0B6D6D003D88A2 /* Icon512.png */,
+				ABFF9D921C0B6D6D003D88A2 /* Icon1024.png */,
 				ABFF9D8E1C0B51F3003D88A2 /* display.png */,
 				ABFF9D811C0AE3BA003D88A2 /* Launch-480h@2x.png */,
 				ABFF9D821C0AE3BA003D88A2 /* Launch-568h@2x.png */,
@@ -329,7 +339,6 @@
 				ABC35C0B143FE9F1007855CF /* nsim.rom */,
 				AB3712FC0F33769300413F34 /* Glyphs */,
 				AB3712F00F33768F00413F34 /* AppStoreBlurb.rtf */,
-				AB3712F50F33768F00413F34 /* Icon.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				2899E5210DE3E06400AC0155 /* Calc41CViewController.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -555,6 +564,7 @@
 				ABC35C83143FEA21007855CF /* 055.png in Resources */,
 				ABFF9D8D1C0AEE59003D88A2 /* gradient-1136.png in Resources */,
 				ABC35C84143FEA21007855CF /* 056.png in Resources */,
+				ABFF9D931C0B6D6D003D88A2 /* Icon-60@2x.png in Resources */,
 				ABC35C85143FEA21007855CF /* 057.png in Resources */,
 				ABC35C86143FEA21007855CF /* 058.png in Resources */,
 				ABC35C87143FEA21007855CF /* 059.png in Resources */,
@@ -563,6 +573,7 @@
 				ABC35C8A143FEA21007855CF /* 062.png in Resources */,
 				ABFF9D8B1C0AE760003D88A2 /* Launch-667h@2x.png in Resources */,
 				ABC35C8B143FEA21007855CF /* 063.png in Resources */,
+				ABFF9D941C0B6D6D003D88A2 /* Icon512.png in Resources */,
 				ABC35C8C143FEA21007855CF /* 064.png in Resources */,
 				ABC35C8D143FEA21007855CF /* 065.png in Resources */,
 				ABC35C8E143FEA21007855CF /* 066.png in Resources */,
@@ -598,6 +609,7 @@
 				ABC35CAA143FEA21007855CF /* 094.png in Resources */,
 				ABC35CAB143FEA21007855CF /* 095.png in Resources */,
 				ABC35CAC143FEA21007855CF /* 096.png in Resources */,
+				ABFF9D951C0B6D6D003D88A2 /* Icon1024.png in Resources */,
 				ABC35CAD143FEA21007855CF /* 097.png in Resources */,
 				ABC35CAE143FEA21007855CF /* 098.png in Resources */,
 				ABC35CAF143FEA21007855CF /* 099.png in Resources */,
