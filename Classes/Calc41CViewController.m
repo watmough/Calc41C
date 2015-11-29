@@ -491,7 +491,7 @@ pid_t			thread;
 	// bang the nsim thread just in case...
 	// since it seems to lose SIGALRM events. I should really be tracking a counter or
 	// something instead of this.
-	kill(thread, SIGALRM);
+//	kill(thread, SIGALRM);
 }
 
 char * ram_file_name = 0;
@@ -548,59 +548,32 @@ void LaunchThread()
 }
 */
 
-//--------------------------------------------------------------------------------
-// viewDidLoad
-//--------------------------------------------------------------------------------
-- (void)viewDidLoad
+
+- (void)applicationDidBecomeActive:(id)obj
 {
-/*  if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-        // iOS 7
-        [self prefersStatusBarHidden];
-        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    NSLog(@"UIViewController: application did become active\n");
+    
+    // init access to mutex used for display data
+    pthread_mutex_init(&mutex, NULL);
+    
+    // get key click from prefs
+    key_click = [[NSUserDefaults standardUserDefaults] boolForKey:@"KeyClick"];
+    
+    // Init display buffers
+    disp_buf1 [0] ='\0';
+    disp_buf2 [0] ='\0';
+    
+    // get bundle / rom
+    NSString *romPath;
+    NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
+    if (!(romPath = [thisBundle pathForResource:@"nsim" ofType:@"rom"]))  {
+        NSLog(@"Calc41C: unable to find rom");
     }
-*/    
-	// init access to mutex used for display data
-	pthread_mutex_init(&mutex, NULL);
-	
-	[super viewDidLoad];
-	
-	// get key click from prefs
-	key_click = [[NSUserDefaults standardUserDefaults] boolForKey:@"KeyClick"];
-	
-	// Init display buffers
-	disp_buf1 [0] ='\0';
-	disp_buf2 [0] ='\0';
-
-	// load rom
-	NSString *romPath;
-	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
-	if (!(romPath = [thisBundle pathForResource:@"nsim" ofType:@"rom"]))  {
-		NSLog(@"Calc41C: unable to find rom");
-	}
-
-	// Get URL to the clicks
-	CFURLRef urlRefCli = CFURLCreateWithFileSystemPath (
-						 kCFAllocatorDefault,
-						 (CFStringRef)[thisBundle pathForResource:@"hp65_4_1" ofType:@"aiff"],
-						 kCFURLPOSIXPathStyle,
-						 FALSE);
-	CFURLRef urlRefIck = CFURLCreateWithFileSystemPath (
-						 kCFAllocatorDefault,
-						 (CFStringRef)[thisBundle pathForResource:@"hp65_4_2" ofType:@"aiff"],
-						 kCFURLPOSIXPathStyle,
-						 FALSE);
-	
-	// create a system sound ID to represent the sound file
-	AudioServicesCreateSystemSoundID (urlRefCli, &ssidCli);
-	AudioServicesCreateSystemSoundID (urlRefIck, &ssidIck);
-	
-	CFRelease(urlRefCli);
-	CFRelease(urlRefIck);
-
-	// Initialize nsim
-	int ram_size = 320;
-	init_nsim(ram_size, [romPath cStringUsingEncoding:NSASCIIStringEncoding] , 0/*trace*/);
-
+    
+    // Initialize nsim
+    int ram_size = 320;
+    init_nsim(ram_size, [romPath cStringUsingEncoding:NSASCIIStringEncoding] , 0/*trace*/);
+    
     // get path to saved ram file
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -612,12 +585,63 @@ void LaunchThread()
     // start up nsim thread
     LaunchThread();
     
+    key_pressed = KC_NONE;
+}
+
+//--------------------------------------------------------------------------------
+// viewDidLoad
+//--------------------------------------------------------------------------------
+- (void)viewDidLoad
+{
+/*  if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        // iOS 7
+        [self prefersStatusBarHidden];
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    }
+*/    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidBecomeActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+	[super viewDidLoad];
+
+    // load bundle
+    NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
+    
+    // Get URL to the clicks
+    CFURLRef urlRefCli = CFURLCreateWithFileSystemPath (
+                                                        kCFAllocatorDefault,
+                                                        (CFStringRef)[thisBundle pathForResource:@"hp65_4_1" ofType:@"aiff"],
+                                                        kCFURLPOSIXPathStyle,
+                                                        FALSE);
+    CFURLRef urlRefIck = CFURLCreateWithFileSystemPath (
+                                                        kCFAllocatorDefault,
+                                                        (CFStringRef)[thisBundle pathForResource:@"hp65_4_2" ofType:@"aiff"],
+                                                        kCFURLPOSIXPathStyle,
+                                                        FALSE);
+    
+    // create a system sound ID to represent the sound file
+    AudioServicesCreateSystemSoundID (urlRefCli, &ssidCli);
+    AudioServicesCreateSystemSoundID (urlRefIck, &ssidIck);
+    CFRelease(urlRefCli);
+    CFRelease(urlRefIck);
+    
     // resize view to screen size
     self.view.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     
     // get bounds
     CGRect b = self.view.bounds;
     NSLog(@"Bounds: xy %f %f  wh %f %f\n",b.origin.x,b.origin.y,b.size.width,b.size.height);
+
+    if (b.size.height==480) {
+        UIImageView *uv = self.view;
+        [uv setImage:[UIImage imageNamed:@"gradient.png"]];
+    }
+    
+    if (b.size.height==568) {
+        UIImageView *uv = self.view;
+        [uv setImage:[UIImage imageNamed:@"gradient-1136.png"]];
+    }
     
     // calculate start and height of button rows
     float sy = 64;
@@ -665,7 +689,7 @@ void LaunchThread()
             if( row==0 && col<2 )
                 button.center = CGPointMake(40+col*60, sy+hy/4);
             else if( row==0 )
-                button.center = CGPointMake(110+col*60, sy+hy/4);
+                button.center = CGPointMake(40+(col+1)*60, sy+hy/4);
             else if( row<5 )
                 button.center = CGPointMake(40+col*60, sy+row*hy+hy/4);
             else
@@ -696,8 +720,6 @@ void LaunchThread()
 
     [[self view] addSubview:mainDisplay];
 	[[self view] setNeedsDisplay];
-    
-    key_pressed = KC_NONE;
 }
 
 //--------------------------------------------------------------------------------

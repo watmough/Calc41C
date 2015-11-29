@@ -22,8 +22,8 @@
 #import "Calc41CAppDelegate.h"
 #import "Calc41CViewController.h"
 
-extern char * ram_file_name;
-extern int write_ram_file (char *ramfn);
+//extern char * ram_file_name;
+//extern int write_ram_file (char *ramfn);
 
 #pragma mark -
 #pragma mark Calc41CAppDelegate Implementation 
@@ -43,13 +43,20 @@ extern int write_ram_file (char *ramfn);
     [window makeKeyAndVisible];
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    NSLog(@"Application did become active ...\n");
+}
+
 //--------------------------------------------------------------------------------
 // applicationWillResignActive:
 //--------------------------------------------------------------------------------
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    
+    NSLog(@"Application will resign active ... saving state\n");
     key_pressed = -2;
+    
+    
 	// save memory
 //	if( ram_file_name) {
 //		if (! write_ram_file (ram_file_name))
@@ -82,8 +89,6 @@ extern char display_enable;
 //			fprintf (stderr, "Error writing RAM file '%s'\n", ram_file_name);
 //		}
 //	}
-    
-    key_pressed = -2; /*KC_EXIT;*/
 }
 
 //--------------------------------------------------------------------------------

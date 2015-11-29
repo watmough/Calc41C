@@ -1593,7 +1593,7 @@ int isleep(u_time_t time, int return_on_any_signal) {
 } 
 
 int run_nsim(char *ram_f) {
-	io_count = 10000;
+    io_count = 0;//10000;
 	key_flag = 0;
 	
 	if (! read_ram_file (ram_f))
@@ -1629,7 +1629,7 @@ int run_nsim(char *ram_f) {
 		if (io_count <= 0) 
 		{
 			handle_display ();
-			if (handle_keyboard() == KC_EXIT) 
+			if (handle_keyboard() == KC_EXIT && pc!=0x27f8)     // ??? This pc doesn't recover/restart
 			{
 				if (ram_f) 
 					if (! write_ram_file (ram_f))
@@ -1637,7 +1637,7 @@ int run_nsim(char *ram_f) {
 				return 0;
 			}
 			
-			io_count = 67;  /* nominal 380 KHz oscillator */
+            io_count = 67;      //67;  /* nominal 380 KHz oscillator */
 //			printf("pc: %x\n",pc);
 #ifdef USE_TIMER
 //			pause ();
