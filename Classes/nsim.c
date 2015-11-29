@@ -1593,7 +1593,7 @@ int isleep(u_time_t time, int return_on_any_signal) {
 } 
 
 int run_nsim(char *ram_f) {
-	io_count = 0; //10000;
+	io_count = 10000;
 	key_flag = 0;
 	
 	if (! read_ram_file (ram_f))
@@ -1634,11 +1634,11 @@ int run_nsim(char *ram_f) {
 				if (ram_f) 
 					if (! write_ram_file (ram_f))
 						fprintf (stderr, "Error writing RAM file '%s'\n", ram_f);
-//				return 0;
+				return 0;
 			}
 			
 			io_count = 67;  /* nominal 380 KHz oscillator */
-//			printf(".");
+//			printf("pc: %x\n",pc);
 #ifdef USE_TIMER
 //			pause ();
 			isleep(10000,0);

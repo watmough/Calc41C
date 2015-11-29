@@ -95,7 +95,7 @@
 
 	// add orange text as label
 	CGRect b = [self bounds];
-	float yt = b.size.height*0.06;
+    float yt = b.size.height*0.02;      //0.06;
 	UILabel * tlabel = [[UILabel alloc] initWithFrame:CGRectMake(0, yt, b.size.width, 14)];
 	tlabel.font = topFont;
 	tlabel.text = topTitle;

@@ -30,7 +30,7 @@
 	<string>MainWindow</string>
 	<key>UIApplicationExitsOnSuspend</key>
 	<true/>
-	<key>UILaunchImageFile~iphone</key>
+	<key>UILaunchImageFile</key>
 	<string>Launch</string>
 	<key>UIPrerenderedIcon</key>
 	<string>YES</string>

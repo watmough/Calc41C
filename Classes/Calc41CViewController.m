@@ -601,6 +601,28 @@ void LaunchThread()
 	int ram_size = 320;
 	init_nsim(ram_size, [romPath cStringUsingEncoding:NSASCIIStringEncoding] , 0/*trace*/);
 
+    // get path to saved ram file
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"savedram"];
+    const char * pathChars = [path UTF8String];
+    ram_file_name = (char *)malloc(PATH_MAX);
+    strncpy(ram_file_name, pathChars, strlen(pathChars)+1);
+    
+    // start up nsim thread
+    LaunchThread();
+    
+    // resize view to screen size
+    self.view.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+    
+    // get bounds
+    CGRect b = self.view.bounds;
+    NSLog(@"Bounds: xy %f %f  wh %f %f\n",b.origin.x,b.origin.y,b.size.width,b.size.height);
+    
+    // calculate start and height of button rows
+    float sy = 64;
+    float hy = (b.size.height-sy) / 9;
+    
 	// create UI
 	for( int row = 0 ; row < 9 ; ++row )
 	{
@@ -628,22 +650,32 @@ void LaunchThread()
 			if( row>= 5 ) {
 				button.frame = CGRectMake(0.0, 0.0, /*width*/60, /*height*/48);
 			}
-			
-			// Move it to the right spot
-			if( row==0 && col<2 )				
-				button.center = CGPointMake(40+col*60, 60);
-			else if( row==0 )
-				button.center = CGPointMake(110+col*60, 60);
-			else if( row<5 )
-				button.center = CGPointMake(40+col*60, 53+row*47);
-			else
-				button.center = CGPointMake(40+col*80, 242+(row-4)*47);
-			
+/*
+            // Move it to the right spot
+            if( row==0 && col<2 )
+                button.center = CGPointMake(40+col*60, 53);
+            else if( row==0 )
+                button.center = CGPointMake(110+col*60, 53);
+            else if( row<5 )
+                button.center = CGPointMake(40+col*60, 53+row*47);
+            else
+                button.center = CGPointMake(40+col*80, 242+(row-4)*47);
+*/
+            // Move it to the right spot
+            if( row==0 && col<2 )
+                button.center = CGPointMake(40+col*60, sy+hy/4);
+            else if( row==0 )
+                button.center = CGPointMake(110+col*60, sy+hy/4);
+            else if( row<5 )
+                button.center = CGPointMake(40+col*60, sy+row*hy+hy/4);
+            else
+                button.center = CGPointMake(40+col*80, sy+row*hy+hy/4);
+            
 			// Double width enter key
 			if( row==4 && col ==0 )
 			{
 				button.frame = CGRectMake(0.0, 0.0, /*width*/105, /*height*/44);
-				button.center = CGPointMake(75, 53+row*47);
+				button.center = CGPointMake(60, sy+row*hy+hy/4);
 			}
 
 			// Add button as subview
@@ -661,23 +693,11 @@ void LaunchThread()
 	mainDisplay.center = CGPointMake(160, 40);
 	mainDisplay.backgroundColor = [UIColor clearColor];
 	mainDisplay.tag = -1;
-//    CGRect b = self.view.bounds;
-//    b.origin.y = 20;
-//    b.size.height = b.size.height - 20;
-//    self.view.bounds = b;
-	[[self view] addSubview:mainDisplay];
+
+    [[self view] addSubview:mainDisplay];
 	[[self view] setNeedsDisplay];
-	
-	// get path to saved ram file
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"savedram"];
-	const char * pathChars = [path UTF8String];
-	ram_file_name = (char *)malloc(PATH_MAX);
-	strncpy(ram_file_name, pathChars, strlen(pathChars)+1);
-	
-	// start up nsim thread
-	LaunchThread();
+    
+    key_pressed = KC_NONE;
 }
 
 //--------------------------------------------------------------------------------

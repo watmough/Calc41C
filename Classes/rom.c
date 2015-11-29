@@ -24,6 +24,7 @@ $Header: /home/yl2/eric/hpcalc/nasm/RCS/rom.c,v 1.2 1995/08/02 22:16:45 eric Exp
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "nsim.h"
 #include "rom.h"
 

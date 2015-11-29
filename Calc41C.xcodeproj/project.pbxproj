@@ -14,6 +14,9 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* Calc41CViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* Calc41CViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		AB09E9721C095ECD001CD609 /* Launch-668h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB09E9711C095ECD001CD609 /* Launch-668h@2x.png */; };
+		AB09E9741C095F46001CD609 /* Launch-480h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB09E9731C095F46001CD609 /* Launch-480h@2x.png */; };
+		AB09E9761C096078001CD609 /* Launch-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = AB09E9751C096078001CD609 /* Launch-568h.png */; };
 		AB3712F60F33768F00413F34 /* AppStoreBlurb.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB3712F00F33768F00413F34 /* AppStoreBlurb.rtf */; };
 		AB3712FB0F33768F00413F34 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3712F50F33768F00413F34 /* Icon.png */; };
 		AB3713DE0F3398C300413F34 /* CalculatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3713CE0F3398C300413F34 /* CalculatorButton.m */; };
@@ -25,7 +28,6 @@
 		AB3713E40F3398C300413F34 /* rom.c in Sources */ = {isa = PBXBuildFile; fileRef = AB3713D80F3398C300413F34 /* rom.c */; };
 		AB3713E60F3398C300413F34 /* Calc41CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3713DD0F3398C300413F34 /* Calc41CViewController.m */; };
 		AB3713EE0F339A4B00413F34 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3713ED0F339A4B00413F34 /* AudioToolbox.framework */; };
-		AB934BE31C095B6700FB365A /* Launch-668h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB934BE21C095B6700FB365A /* Launch-668h@2x.png */; };
 		ABC35C0C143FE9F1007855CF /* nsim.rom in Resources */ = {isa = PBXBuildFile; fileRef = ABC35C0B143FE9F1007855CF /* nsim.rom */; };
 		ABC35C0F143FEA02007855CF /* button60.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC35C0D143FEA02007855CF /* button60.png */; };
 		ABC35C10143FEA02007855CF /* button60orange.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC35C0E143FEA02007855CF /* button60orange.png */; };
@@ -130,6 +132,9 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Calc41C_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calc41C_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB09E9711C095ECD001CD609 /* Launch-668h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch-668h@2x.png"; sourceTree = "<group>"; };
+		AB09E9731C095F46001CD609 /* Launch-480h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch-480h@2x.png"; sourceTree = "<group>"; };
+		AB09E9751C096078001CD609 /* Launch-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch-568h.png"; sourceTree = "<group>"; };
 		AB3712F00F33768F00413F34 /* AppStoreBlurb.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = AppStoreBlurb.rtf; sourceTree = "<group>"; };
 		AB3712F50F33768F00413F34 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		AB3713CD0F3398C300413F34 /* CalculatorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorButton.h; sourceTree = "<group>"; };
@@ -149,7 +154,6 @@
 		AB3713DD0F3398C300413F34 /* Calc41CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calc41CViewController.m; sourceTree = "<group>"; };
 		AB3713ED0F339A4B00413F34 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AB3713F60F339B5400413F34 /* xio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xio.h; sourceTree = "<group>"; };
-		AB934BE21C095B6700FB365A /* Launch-668h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch-668h@2x.png"; sourceTree = "<group>"; };
 		ABC35C0B143FE9F1007855CF /* nsim.rom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = nsim.rom; path = Rom/nsim.rom; sourceTree = "<group>"; };
 		ABC35C0D143FEA02007855CF /* button60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button60.png; path = Graphics/button60.png; sourceTree = "<group>"; };
 		ABC35C0E143FEA02007855CF /* button60orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button60orange.png; path = Graphics/button60orange.png; sourceTree = "<group>"; };
@@ -305,7 +309,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AB934BDD1C094D5500FB365A /* :aunchImages */,
+				AB09E9731C095F46001CD609 /* Launch-480h@2x.png */,
+				AB09E9751C096078001CD609 /* Launch-568h.png */,
+				AB09E9711C095ECD001CD609 /* Launch-668h@2x.png */,
 				ABC35D25143FF9B2007855CF /* click.aif */,
 				ABC35D26143FF9B2007855CF /* hp65_4_1.aiff */,
 				ABC35D27143FF9B2007855CF /* hp65_4_2.aiff */,
@@ -442,14 +448,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		AB934BDD1C094D5500FB365A /* :aunchImages */ = {
-			isa = PBXGroup;
-			children = (
-				AB934BE21C095B6700FB365A /* Launch-668h@2x.png */,
-			);
-			name = ":aunchImages";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -519,6 +517,7 @@
 				ABC35C66143FEA21007855CF /* 004.png in Resources */,
 				ABC35C67143FEA21007855CF /* 005.png in Resources */,
 				ABC35C68143FEA21007855CF /* 006.png in Resources */,
+				AB09E9721C095ECD001CD609 /* Launch-668h@2x.png in Resources */,
 				ABC35C69143FEA21007855CF /* 012.png in Resources */,
 				ABC35C6A143FEA21007855CF /* 013.png in Resources */,
 				ABC35C6B143FEA21007855CF /* 029.png in Resources */,
@@ -533,6 +532,7 @@
 				ABC35C74143FEA21007855CF /* 040.png in Resources */,
 				ABC35C75143FEA21007855CF /* 041.png in Resources */,
 				ABC35C76143FEA21007855CF /* 042.png in Resources */,
+				AB09E9741C095F46001CD609 /* Launch-480h@2x.png in Resources */,
 				ABC35C77143FEA21007855CF /* 043.png in Resources */,
 				ABC35C78143FEA21007855CF /* 044.png in Resources */,
 				ABC35C79143FEA21007855CF /* 045.png in Resources */,
@@ -550,6 +550,7 @@
 				ABC35C85143FEA21007855CF /* 057.png in Resources */,
 				ABC35C86143FEA21007855CF /* 058.png in Resources */,
 				ABC35C87143FEA21007855CF /* 059.png in Resources */,
+				AB09E9761C096078001CD609 /* Launch-568h.png in Resources */,
 				ABC35C88143FEA21007855CF /* 060.png in Resources */,
 				ABC35C89143FEA21007855CF /* 061.png in Resources */,
 				ABC35C8A143FEA21007855CF /* 062.png in Resources */,
@@ -574,7 +575,6 @@
 				ABC35C9D143FEA21007855CF /* 081.png in Resources */,
 				ABC35C9E143FEA21007855CF /* 082.png in Resources */,
 				ABC35C9F143FEA21007855CF /* 083.png in Resources */,
-				AB934BE31C095B6700FB365A /* Launch-668h@2x.png in Resources */,
 				ABC35CA0143FEA21007855CF /* 084.png in Resources */,
 				ABC35CA1143FEA21007855CF /* 085.png in Resources */,
 				ABC35CA2143FEA21007855CF /* 086.png in Resources */,

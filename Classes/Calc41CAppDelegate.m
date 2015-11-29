@@ -48,13 +48,15 @@ extern int write_ram_file (char *ramfn);
 //--------------------------------------------------------------------------------
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    
+    key_pressed = -2;
 	// save memory
-	if( ram_file_name) {
-		if (! write_ram_file (ram_file_name))
-		{
-			fprintf (stderr, "Error writing RAM file '%s'\n", ram_file_name);
-		}
-	}
+//	if( ram_file_name) {
+//		if (! write_ram_file (ram_file_name))
+//		{
+//			fprintf (stderr, "Error writing RAM file '%s'\n", ram_file_name);
+//		}
+//	}
 	
 }
 
@@ -67,20 +69,21 @@ extern char display_enable;
 {
 	// turn off hack for 1.2
 	// ### todo: check if on, call appropriate code
-	if (display_enable) {
-		key_pressed = 1;				// on/off
-		sleep(1);
-		key_pressed = -1;
-	}
+//	if (display_enable) {
+//		key_pressed = 1;				// on/off
+//		sleep(1);
+//		key_pressed = -1;
+//	}
 	
 	// save memory
-	if( ram_file_name) {
-		if (! write_ram_file (ram_file_name))
-		{
-			fprintf (stderr, "Error writing RAM file '%s'\n", ram_file_name);
-		}
-	}
-	
+//	if( ram_file_name) {
+//		if (! write_ram_file (ram_file_name))
+//		{
+//			fprintf (stderr, "Error writing RAM file '%s'\n", ram_file_name);
+//		}
+//	}
+    
+    key_pressed = -2; /*KC_EXIT;*/
 }
 
 //--------------------------------------------------------------------------------
