@@ -25,7 +25,7 @@
 
 @interface CalculatorButton : UIButton {
 
-	NSString * topTitle;
+	id       * topTitle;            // may be attributed
 	NSString * mainTitle;
 	NSString * lowerTitle;
 	
@@ -34,6 +34,7 @@
 
 - (id)initWithFrame:(CGRect)frame orange:(BOOL)orange;
 - (void) setTop:(NSString *)top;
+- (void) setTopWithAttributes:(NSAttributedString *)top;
 - (void) setMain:(NSString *)top;
 - (void) setLower:(NSString *)lower;
 

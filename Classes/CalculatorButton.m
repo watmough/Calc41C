@@ -96,9 +96,14 @@
 	// add orange text as label
 	CGRect b = [self bounds];
     float yt = b.size.height*0.02;      //0.06;
+    if ([topTitle respondsToSelector:@selector(isEqualToAttributedString:)]) yt=b.size.height*0.0;
 	UILabel * tlabel = [[UILabel alloc] initWithFrame:CGRectMake(0, yt, b.size.width, 14)];
 	tlabel.font = topFont;
-	tlabel.text = topTitle;
+    if ([topTitle respondsToSelector:@selector(isEqualToAttributedString:)]) {
+        tlabel.attributedText = topTitle;
+    } else {
+        tlabel.text = topTitle;
+    }
 	tlabel.backgroundColor = [UIColor clearColor];
 	tlabel.textColor = [UIColor orangeColor];
 	tlabel.textAlignment = UITextAlignmentCenter;

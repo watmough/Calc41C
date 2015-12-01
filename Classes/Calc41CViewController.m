@@ -167,48 +167,48 @@ SystemSoundID    ssidIck;
 			case 0:	return @"∑+"; break;
 			case 1:	return @"1/x"; break;
 			case 2: return @"√x"; break;
-			case 3:	return @"log"; break;
-			case 4:	return @"ln"; break;
+			case 3:	return @"LOG"; break;
+			case 4:	return @"LN"; break;
 			default: break;
 		}
 	}
 	if( row==2 )
 	{
 		switch (col) {
-			case 0:	return @"x<>y"; break;
-			case 1:	return @"rv"; break;
-			case 2: return @"sin"; break;
-			case 3:	return @"cos"; break;
-			case 4:	return @"tan"; break;
+			case 0:	return @"x≷y"; break;
+			case 1:	return @"R⬇︎"; break;
+			case 2: return @"SIN"; break;
+			case 3:	return @"COS"; break;
+			case 4:	return @"TAN"; break;
 			default: break;
 		}
 	}
 	if( row==3 )
 	{
 		switch (col) {
-			case 0:	return @"shift"; break;
-			case 1:	return @"xeq"; break;
-			case 2: return @"sto"; break;
-			case 3:	return @"rcl"; break;
-			case 4:	return @"sst"; break;
+			case 0:	return @""; break;
+			case 1:	return @"XEQ"; break;
+			case 2: return @"STO"; break;
+			case 3:	return @"RCL"; break;
+			case 4:	return @"SST"; break;
 			default: break;
 		}
 	}
 	if( row==4 )
 	{
 		switch (col) {
-			case 0:	return @"Enter"; break;
+			case 0:	return @"ENTER ⬆︎"; break;
 			case 1:	return @"♘"; break;
-			case 2: return @"chs"; break;
-			case 3:	return @"eex"; break;
-			case 4:	return @"←"; break;
+			case 2: return @"CHS"; break;
+			case 3:	return @"EEX"; break;
+			case 4:	return @"⬅︎"; break;
 			default: break;
 		}
 	}
 	if( row==5 )
 	{
 		switch (col) {
-			case 0:	return @"-"; break;
+			case 0:	return @"−"; break;
 			case 1:	return @"7"; break;
 			case 2: return @"8"; break;
 			case 3:	return @"9"; break;
@@ -228,7 +228,7 @@ SystemSoundID    ssidIck;
 	if( row==7 )
 	{
 		switch (col) {
-			case 0:	return @"x"; break;
+			case 0:	return @"×"; break;
 			case 1:	return @"1"; break;
 			case 2: return @"2"; break;
 			case 3:	return @"3"; break;
@@ -241,13 +241,57 @@ SystemSoundID    ssidIck;
 			case 0:	return @"÷"; break;
 			case 1:	return @"0"; break;
 			case 2: return @"."; break;
-			case 3:	return @"r/s"; break;
+			case 3:	return @"R/S"; break;
 			default: break;
 		}
 	}
 	
 	return @"";
 }
+
+
+// UI font is 14 point
+- (NSMutableAttributedString *)superAttribute:(NSString *)plain start:(int)start len:(int)len
+{
+    UIFont *fnt = [UIFont fontWithName:@"Helvetica-Bold" size:14.0];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:plain
+                                                                                         attributes:@{NSFontAttributeName: [fnt fontWithSize:14.0]}];
+    [attributedString setAttributes:@{NSFontAttributeName : [fnt fontWithSize:10]
+                                      , NSBaselineOffsetAttributeName:@4} range:NSMakeRange(start, len)];
+    return attributedString;
+}
+
+// buttonText:
+// return appropriate HP41C keycap text by keyboard coordinate.
+//--------------------------------------------------------------------------------
+- (NSAttributedString *)attributedButtonTextTop:(int)pos
+{
+    // Get row and col
+    int row = pos / 5;
+    int col = pos % 5;
+    
+    if( row==1 )
+    {
+        switch (col) {
+            case 1:	return [self superAttribute:@"yx" start:1 len:1]; break;
+            case 2:	return [self superAttribute:@"x2" start:1 len:1]; break;
+            case 3:	return [self superAttribute:@"10x" start:2 len:1]; break;
+            case 4:	return [self superAttribute:@"ex" start:1 len:1]; break;
+            default: break;
+        }
+    }
+    if( row==2 )
+    {
+        switch (col) {
+            case 2:	return [self superAttribute:@"SIN-1" start:3 len:2]; break;
+            case 3:	return [self superAttribute:@"COS-1" start:3 len:2]; break;
+            case 4:	return [self superAttribute:@"TAN-1" start:3 len:2]; break;
+            default: break;
+        }
+    }
+    return nil;
+}
+
 
 //--------------------------------------------------------------------------------
 // buttonText:
@@ -273,10 +317,6 @@ SystemSoundID    ssidIck;
 	{
 		switch (col) {
 			case 0:	return @"∑-"; break;
-			case 1:	return @"y^x"; break;
-			case 2: return @"x^2"; break;
-			case 3:	return @"10^x"; break;
-			case 4:	return @"e^x"; break;
 			default: break;
 		}
 	}
@@ -285,9 +325,6 @@ SystemSoundID    ssidIck;
 		switch (col) {
 			case 0:	return @"CL∑"; break;
 			case 1:	return @"%"; break;
-			case 2: return @"sin-1"; break;
-			case 3:	return @"cos-1"; break;
-			case 4:	return @"tan-1"; break;
 			default: break;
 		}
 	}
@@ -295,21 +332,21 @@ SystemSoundID    ssidIck;
 	{
 		switch (col) {
 			case 0:	return NULL; break;
-			case 1:	return @"asn"; break;
-			case 2: return @"lbl"; break;
-			case 3:	return @"gto"; break;
-			case 4:	return @"bst"; break;
+			case 1:	return @"ASN"; break;
+			case 2: return @"LBL"; break;
+			case 3:	return @"GTO"; break;
+			case 4:	return @"BST"; break;
 			default: break;
 		}
 	}
 	if( row==4 )
 	{
 		switch (col) {
-			case 0:	return @"catalog"; break;
+			case 0:	return @"CATALOG"; break;
 			case 1:	return NULL; break;
-			case 2: return @"isg"; break;
-			case 3:	return @"rtn"; break;
-			case 4:	return @"clϰ/a"; break;
+			case 2: return @"ISG"; break;
+			case 3:	return @"RTN"; break;
+			case 4:	return @"CLϰ/A"; break;
 			default: break;
 		}
 	}
@@ -317,19 +354,19 @@ SystemSoundID    ssidIck;
 	{
 		switch (col) {
 			case 0:	return @"x=y?"; break;
-			case 1:	return @"sf"; break;
-			case 2: return @"cf"; break;
-			case 3:	return @"fs?"; break;
+			case 1:	return @"SF"; break;
+			case 2: return @"CF"; break;
+			case 3:	return @"FS?"; break;
 			default: break;
 		}
 	}
 	if( row==6 )
 	{
 		switch (col) {
-			case 0:	return @"x<=y?"; break;
-			case 1:	return @"beep"; break;
-			case 2: return @"p->r"; break;
-			case 3:	return @"r->p"; break;
+			case 0:	return @"x≤y?"; break;
+			case 1:	return @"BEEP"; break;
+			case 2: return @"P➞R"; break;
+			case 3:	return @"R➞P"; break;
 			default: break;
 		}
 	}
@@ -337,9 +374,9 @@ SystemSoundID    ssidIck;
 	{
 		switch (col) {
 			case 0:	return @"x>y?"; break;
-			case 1:	return @"fix"; break;
-			case 2: return @"sci"; break;
-			case 3:	return @"eng"; break;
+			case 1:	return @"FIX"; break;
+			case 2: return @"SCI"; break;
+			case 3:	return @"ENG"; break;
 			default: break;
 		}
 	}
@@ -347,14 +384,14 @@ SystemSoundID    ssidIck;
 	{
 		switch (col) {
 			case 0:	return @"x=0?"; break;
-			case 1:	return @"pi"; break;
-			case 2: return @"last ϰ"; break;
-			case 3:	return @"view"; break;
+			case 1:	return @"π"; break;
+			case 2: return @"LAST ϰ"; break;
+			case 3:	return @"VIEW"; break;
 			default: break;
 		}
 	}
 	
-	return @"";
+	return nil;
 }
 
 //--------------------------------------------------------------------------------
@@ -455,7 +492,7 @@ SystemSoundID    ssidIck;
 	{
 		switch (col) {
 			case 0:	return @":"; break;
-			case 1:	return @"space"; break;
+			case 1:	return @"SPACE"; break;
 			case 2: return @","; break;
 			case 3:	return NULL; break;
 			default: break;
@@ -660,11 +697,15 @@ void LaunchThread()
 			if( row==4 && col==1 )
 				continue;
 			
-			// Create a button
-			CalculatorButton * button = [self makeButton:(row==3 && col==0)];
+            // Create a button
+            CalculatorButton * button = [self makeButton:(row==3 && col==0)];
+
+            // get button text (may be attributed)
+            id topText = [self buttonTextTop:(5*row+col)];
+            if (topText==nil) topText = [self attributedButtonTextTop:(5*row+col)];
+            [button setTop:topText];
 			button.tag = 10*(row+0)+col+1;
 			[button setMain:[self buttonText:(5*row+col)]];
-			[button setTop:[self buttonTextTop:(5*row+col)]];
 			[button setLower:[self buttonTextLower:(5*row+col)]];
 
 			// Button size
